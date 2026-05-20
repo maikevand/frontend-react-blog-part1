@@ -9,6 +9,7 @@ import Navigation from "./components/navigation/Navigation.jsx";
 import PostDetails from "./pages/post-details/PostDetails.jsx";
 
 function App() {
+
     return (
         <div className="page-container">
             <img src={logo} alt="Company logo"/>
