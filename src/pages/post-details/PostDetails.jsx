@@ -8,14 +8,14 @@ function PostDetails() {
 
     const {id} = useParams();
     const post = posts.find((post) => post.id === Number(id));
-    console.log(post.author);
-    console.log(post.title);
-    console.log(post.readTime);
 
     return (
         <>
-            <article>
-            <h1>{post.title} ({post.readTime} minuten)</h1>
+            <article className="single-blog">
+                <div className="blog-header">
+                    <h1>{post.title}</h1>
+                    <p>({post.readTime} minuten)</p>
+                </div>
                 <h2>{post.subtitle}</h2>
                 <p>Geschreven door {post.author} op {formatDate(post.created)}</p>
                 <p>{post.content}</p>

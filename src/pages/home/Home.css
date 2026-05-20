@@ -1,0 +1,13 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4rem;
+    min-height: 80vh;
+    /*border: 1px dotted orange;*/
+}
+
+.home-logo {
+    width: 2rem;
+}

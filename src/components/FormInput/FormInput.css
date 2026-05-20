@@ -1,0 +1,17 @@
+.form-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    max-width: 20rem;
+    /*border: 1px solid red;*/
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+}
+
+form button {
+    min-width: 6rem;
+    margin: 0 auto;
+}

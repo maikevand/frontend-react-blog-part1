@@ -2,7 +2,7 @@ import "./FormInput.css"
 
 function FormInput ({fieldname, text, type, value, setValue}) {
     return (
-        <label htmlFor={fieldname}>
+        <label className="form-label" htmlFor={fieldname}>
             {text}
             <input
                 type={type}

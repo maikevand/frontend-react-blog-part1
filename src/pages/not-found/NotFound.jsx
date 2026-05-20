@@ -2,7 +2,7 @@ import "./NotFound.css"
 
 function NotFound() {
     return (
-        <h2>Hier komt de foutmelding</h2>
+        <h2>Oeps... deze pagina bestaat niet</h2>
     );
 }
 

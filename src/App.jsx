@@ -1,5 +1,4 @@
 import './App.css'
-import logo from './assets/logo-white.png'
 import {Route, Routes} from "react-router-dom"
 import Home from "./pages/home/Home.jsx";
 import NewPost from "./pages/new-post/NewPost.jsx";
@@ -12,7 +11,6 @@ function App() {
 
     return (
         <div className="page-container">
-            <img src={logo} alt="Company logo"/>
             <Navigation />
             <Routes>
                 <Route path="/" element={<Home/>}/>

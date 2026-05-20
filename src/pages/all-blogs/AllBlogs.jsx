@@ -7,13 +7,15 @@ function AllBlogs() {
 
     return (
         <>
-            <h1>Totale hoeveelheid blogs: {posts.length} </h1>
+            <h2>Totale hoeveelheid blogs: {posts.length} </h2>
+            <div className="card-section">
             {posts.map((post) => (
-                <article key={post.id}>
+                <article className="blog-card" key={post.id}>
                     <h2><Link to={`/posts/${post.id}`}>{post.title}</Link></h2>
                     <p>{post.comments} reacties - {post.shares} keer gedeeld</p>
                 </article>
             ))}
+            </div>
         </>
     );
 }

@@ -1,5 +1,32 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 5rem;
+    /*border: 1px solid white;*/
+}
+
+nav .nav-image {
+    width: 150px;
+}
+
 nav ul a {
     text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: 50%;
+    /*border: 1px dotted yellow;*/
+}
+
+nav ul li {
+    list-style: none;
+    /*border: 1px solid red;*/
 }
 
 .default-link {

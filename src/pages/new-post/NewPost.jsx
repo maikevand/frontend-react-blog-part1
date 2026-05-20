@@ -52,7 +52,7 @@ function NewPost() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="post-form" onSubmit={handleSubmit}>
             <FormInput
                 fieldname="title"
                 text="Titel"
@@ -74,15 +74,17 @@ function NewPost() {
                 value={authorValue}
                 setValue={setAuthorValue}
             />
-            <label htmlFor="content">Bericht</label>
-            <textarea
-                id="content"
-                name="content"
-                rows="4"
-                cols="30"
-                value={contentValue}
-                onChange={(e) => setContentValue(e.target.value)}>
+            <div className="content-section">
+                <label htmlFor="content">Bericht</label>
+                <textarea
+                    id="content"
+                    name="content"
+                    rows="10"
+                    cols="30"
+                    value={contentValue}
+                    onChange={(e) => setContentValue(e.target.value)}>
             </textarea>
+            </div>
             {error && <p>{error}</p>}
             <button type="submit">Verzenden</button>
         </form>

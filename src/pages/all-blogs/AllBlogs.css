@@ -1,0 +1,28 @@
+.card-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.blog-card {
+    background-color: #FFFFFF;
+    color: #2C2F39;
+    width: 50vh;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.blog-card a:link {
+    color: #38E991;
+}
+
+.blog-card a:visited {
+    color: darkgreen;
+}
