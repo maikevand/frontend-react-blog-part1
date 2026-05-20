@@ -1,7 +1,13 @@
+nav ul a {
+    text-decoration: none;
+}
+
 .default-link {
     border-bottom: 1px solid transparent;
+    color: white;
 }
 
 .active-link {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid white;
+    color: white;
 }
