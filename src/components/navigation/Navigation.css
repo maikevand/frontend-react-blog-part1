@@ -1,0 +1,7 @@
+.default-link {
+    border-bottom: 1px solid transparent;
+}
+
+.active-link {
+    border-bottom: 1px solid red;
+}
