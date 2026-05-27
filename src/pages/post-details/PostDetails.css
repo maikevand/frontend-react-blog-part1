@@ -1,0 +1,15 @@
+.single-blog {
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin-top: 2rem;
+    max-width: 80%;
+}
+
+.blog-header {
+    display: flex;
+    flex-direction: column;
+}

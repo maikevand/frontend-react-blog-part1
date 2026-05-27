@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 5rem;
+}
+
+nav .nav-image {
+    width: 150px;
+}
+
+nav ul a {
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    min-width: 50%;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+.default-link {
+    border-bottom: 1px solid transparent;
+    color: white;
+}
+
+.active-link {
+    border-bottom: 1px solid white;
+    color: white;
+}

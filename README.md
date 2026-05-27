@@ -203,7 +203,6 @@ Je kunt het JSON-bestand op de volgende manier importeren en gebruiken:
 import posts from '../constants/data.json';
 
 function BlogPost() {
-    console.log(posts);
 
     return (
         <></>
