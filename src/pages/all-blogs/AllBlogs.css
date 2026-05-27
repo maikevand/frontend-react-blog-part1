@@ -7,8 +7,8 @@
 }
 
 .blog-card {
-    background-color: #FFFFFF;
-    color: #2C2F39;
+    background-color: var(--color-white);
+    color: var(--color-secondary);
     width: 50vh;
     height: 20vh;
     display: flex;
@@ -20,7 +20,7 @@
 }
 
 .blog-card a:link {
-    color: #38E991;
+    color: var(--color-primary);
 }
 
 .blog-card a:visited {
