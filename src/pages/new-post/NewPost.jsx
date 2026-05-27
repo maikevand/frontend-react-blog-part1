@@ -2,7 +2,8 @@ import "./NewPost.css"
 import FormInput from "../../components/FormInput/FormInput.jsx";
 import React from "react";
 import calculateReadTime from "../../helpers/calculateReadTime.js";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
+import axios from "axios";
 
 function NewPost() {
     const [titleValue, setTitleValue] = React.useState("");
@@ -10,47 +11,76 @@ function NewPost() {
     const [authorValue, setAuthorValue] = React.useState("");
     const [contentValue, setContentValue] = React.useState("");
     const [error, setError] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+    const [isSubmitted, setIsSubmitted] = React.useState(false);
+    const [createdPostId, setCreatedPostId] = React.useState("");
 
-    const navigate = useNavigate();
-
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-
-        if (
-            titleValue === "" ||
-            subtitleValue === "" ||
-            authorValue === "" ||
-            contentValue === ""
-        ) {
-            setError("Vul alle velden in.");
-            return;
-        }
-
-        if (contentValue.length < 300) {
-            setError("Het bericht moet minimaal 300 karakters lang zijn.");
-            return;
-        }
-
-        if (contentValue.length > 2000) {
-            setError("Het bericht mag maximaal 2000 karakters lang zijn.")
-            return;
-        }
         setError("");
 
-        const newPost = {
-            title: titleValue,
-            subtitle: subtitleValue,
-            content: contentValue,
-            author: authorValue,
-            created: new Date().toISOString(),
-            readTime: calculateReadTime(contentValue),
-            comments: 0,
-            shares: 0,
-        };
-        console.log(newPost);
-        navigate("/blogoverzicht");
+        try {
+            if (
+                titleValue === "" ||
+                subtitleValue === "" ||
+                authorValue === "" ||
+                contentValue === ""
+            ) {
+                setError("Vul alle velden in.");
+                return;
+            }
+
+            if (contentValue.length < 300) {
+                setError("Het bericht moet minimaal 300 karakters lang zijn.");
+                return;
+            }
+
+            if (contentValue.length > 2000) {
+                setError("Het bericht mag maximaal 2000 karakters lang zijn.");
+                return;
+            }
+            setError("");
+
+            const newPost = {
+                title: titleValue,
+                subtitle: subtitleValue,
+                content: contentValue,
+                author: authorValue,
+                created: new Date().toISOString(),
+                readTime: calculateReadTime(contentValue),
+                comments: 0,
+                shares: 0,
+            };
+
+            setLoading(true);
+
+            const response = await axios.post("https://novi-backend-api-wgsgz.ondigitalocean.app/api/blogposts/",
+                newPost,
+                {
+                    headers: {
+                        "novi-education-project-id": "d17b3fdb-9491-4065-b047-efe9ea4b773c",
+                    },
+                }
+            );
+
+            setCreatedPostId(response.data.id);
+            setIsSubmitted(true);
+
+        } catch (e) {
+            setError("Er is iets misgegaan bij het verzenden van het bericht.");
+        } finally {
+            setLoading(false);
+        }
     }
 
+    if (isSubmitted) {
+        return (
+            <p>
+                Je blog is succesvol toegevoegd. Je kunt deze{" "}
+                <Link to={`/blogs/${createdPostId}`}>hier</Link> bekijken.
+            </p>
+        );
+    }
     return (
         <form className="post-form" onSubmit={handleSubmit}>
             <FormInput
@@ -85,8 +115,8 @@ function NewPost() {
                     onChange={(e) => setContentValue(e.target.value)}>
             </textarea>
             </div>
-            {error && <p>{error}</p>}
-            <button type="submit">Verzenden</button>
+            {error && <p className="error-message">{error}</p>}
+            <button type="submit" disabled={loading}>{loading ? "Bezig met verzenden..." : "Verzenden"}</button>
         </form>
     );
 }

@@ -1,6 +1,6 @@
 import "./FormInput.css"
 
-function FormInput ({fieldname, text, type, value, setValue}) {
+function FormInput({fieldname, text, type, value, setValue}) {
     return (
         <label className="form-label" htmlFor={fieldname}>
             {text}
@@ -9,7 +9,7 @@ function FormInput ({fieldname, text, type, value, setValue}) {
                 id={fieldname}
                 name={fieldname}
                 value={value}
-                onChange={(e) => setValue(e.target.value)} />
+                onChange={(e) => setValue(e.target.value)}/>
         </label>
     );
 }
