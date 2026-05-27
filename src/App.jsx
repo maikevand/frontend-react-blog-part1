@@ -17,11 +17,10 @@ function App() {
                 <Route path="/post-plaatsen" element={<NewPost/>} />
                 <Route path="/blogoverzicht" element={<AllBlogs/>} />
                 <Route path="*" element={<NotFound/>} />
-                <Route path="/posts/:id" element={<PostDetails />}/>
+                <Route path="/blogs/:id" element={<PostDetails />}/>
             </Routes>
         </div>
     )
 }
-
 
 export default App
